@@ -26,44 +26,46 @@ console.log('hello')
 
 const teamElement = document.getElementById('workTeam')
 
+const cardElement = document.getElementById('member-card')
+
 // creo un array di persone nel quale inserisco i loro nomi il loro ruolo a lavoro e la loro photo
 const teamMembers = [
 
 	{
 		fullName: 'Wayne Barnett',
 		workRole: 'Founder & CEO',
-		avatarThumb: 'wayne-barnett-founder-ceo.jpg',
+		avatarThumb: './img/wayne-barnett-founder-ceo.jpg',
 	},
 
 	{
 		fullName: 'Angela Caroll',
 		workRole: 'Chief Editor',
-		avatarThumb: 'angela-caroll-chief-editor.jpg',
+		avatarThumb: './img/angela-caroll-chief-editor.jpg',
 	},
 
 	{
 		fullName: 'Walter Gordon',
 		workRole: 'Office Manager',
-		avatarThumb: 'walter-gordon-office-manager.jpg',
+		avatarThumb: './img/walter-gordon-office-manager.jpg',
 	},
 
 
 	{
 		fullName: 'Angela Lopez',
 		workRole: 'Social Media Manager',
-		avatarThumb: 'angela-lopez-social-media-manager.jpg',
+		avatarThumb: './img/angela-lopez-social-media-manager.jpg',
 	},
 
 	{
 		fullName: 'Scott Estrada',
 		workRole: 'Developer',
-		avatarThumb: 'scott-estrada-developer.jpg',
+		avatarThumb: './img/scott-estrada-developer.jpg',
 	},
 
 	{
 		fullName: 'Barbara Ramos',
 		workRole: 'Graphic Designer',
-		avatarThumb: 'barbara-ramos-graphic-designer.jpg',
+		avatarThumb: './img/barbara-ramos-graphic-designer.jpg',
 	},
 ]
 
@@ -85,13 +87,30 @@ for (let keyTeamInfos in teamMembers) {
 	const memberThumb = teamMembers[keyTeamInfos].avatarThumb
 	console.log(memberThumb)
 
-	const tr = `
-		<tr>
-			<td>${memberName}</td>
-			<td>${memberRole}</td>
-			<td>${memberThumb}</td>
-		</tr>
+	const divCard = `
+	<div class="col-4">
+
+		<div class="card" style="width: auto;">
+	
+			<img src="${memberThumb}" class="card-img-top">
+	
+			<div class="card-body text-center">
+	
+				<h5 class="card-title">${memberName}</h5>
+	
+				<p class="card-text">${memberRole}</p>
+	
+			</div>
+	
+		</div>
+
+	</div>
 	`
 
-	teamElement.innerHTML += tr
+	cardElement.innerHTML += divCard
 }
+	// <tr>
+	// 	<td>${memberName}</td>
+	// 	<td>${memberRole}</td>
+	// 	<td>${memberThumb}</td>
+	// </tr>
